@@ -178,7 +178,7 @@
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
       thisProduct.amountWidgetElem.addEventListener('updated', function () {
         thisProduct.processOrder();
-      })
+      });
     }
   }
 
@@ -215,15 +215,15 @@
     initActions() {
       const thisWidget = this;
       thisWidget.input.addEventListener('change', function () {
-        thisWidget.setValue(thisWidget.input.value)
+        thisWidget.setValue(thisWidget.input.value);
       });
 
       thisWidget.linkIncrease.addEventListener('click', function () {
-        thisWidget.setValue(parseInt(thisWidget.input.value) + 1)
+        thisWidget.setValue(parseInt(thisWidget.input.value) + 1);
       });
 
       thisWidget.linkDecrease.addEventListener('click', function () {
-        thisWidget.setValue(parseInt(thisWidget.input.value) - 1)
+        thisWidget.setValue(parseInt(thisWidget.input.value) - 1);
       });
 
     }
