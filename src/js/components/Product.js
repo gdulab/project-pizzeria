@@ -135,9 +135,7 @@ class Product {
 
   addToCart() {
     const thisProduct = this;
-
-    // cart.add(thisProduct.prepareCartProduct());
-    console.log(thisProduct.prepareCartProduct());
+    
     const event = new CustomEvent('add-to-cart', { 
       bubbles: true,
       detail: {
