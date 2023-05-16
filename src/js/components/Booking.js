@@ -118,7 +118,7 @@ class Booking {
 
     const startHour = utils.hourToNumber(hour);
 
-    for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock+=0.5) {
+    for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
       // console.log('loop', hourBlock);
       if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
         thisBooking.booked[date][hourBlock] = [];
@@ -225,7 +225,7 @@ class Booking {
     };
 
     for (let starter of thisBooking.dom.starters) {
-      if (starter.checked){
+      if (starter.checked) {
         booking.starters.push(starter.value);
       }
     }
@@ -239,15 +239,15 @@ class Booking {
       },
       body: JSON.stringify(booking),
     };
-      
+
     fetch(url, options)
-      .then(function(response){
+      .then(function (response) {
         return response.json();
-      }).then(function(parsedResponse){
+      }).then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
       });
 
-      alert('Your reservation at: ' + thisBooking.date + ', ' + thisBooking.hourPickerWidget.value + ' is confirmed.');
+    alert('Your reservation at: ' + thisBooking.date + ', ' + thisBooking.hourPickerWidget.value + ' is confirmed.');
   }
 
   initWidgets() {
@@ -274,8 +274,7 @@ class Booking {
     });
 
     thisBooking.dom.submit.addEventListener('click', function (event) {
-      event.preventDefault();
-      thisBooking.sendBooking();
+      thisBooking.sendBooking(event);
     });
 
   }
