@@ -41,17 +41,17 @@ class Booking {
 
     const urls = {
       booking:
-        settings.db.url + '/' +
-        settings.db.booking + '?' +
-        params.booking.join('&'),
+                settings.db.url + '/' +
+                settings.db.booking + '?' +
+                params.booking.join('&'),
       eventsCurrent:
-        settings.db.url + '/' +
-        settings.db.event + '?' +
-        params.eventsCurrent.join('&'),
+                settings.db.url + '/' +
+                settings.db.event + '?' +
+                params.eventsCurrent.join('&'),
       eventsRepeat:
-        settings.db.url + '/' +
-        settings.db.event + '?' +
-        params.eventsRepeat.join('&'),
+                settings.db.url + '/' +
+                settings.db.event + '?' +
+                params.eventsRepeat.join('&'),
     };
 
     // console.log('getData urls', urls);
@@ -104,7 +104,7 @@ class Booking {
       }
     }
 
-    console.log('thisbooking.booked', thisBooking.booked);
+    // console.log('thisbooking.booked', thisBooking.booked);
 
     thisBooking.updateDOM();
   }
@@ -129,23 +129,27 @@ class Booking {
     }
   }
 
+  resetSelectTable() {
+    const thisBooking = this;
+
+    for (let table of thisBooking.dom.tables) {
+      table.classList.remove('selected');
+      thisBooking.activeTable = '';
+    }
+  }
+
   updateDOM() {
     const thisBooking = this;
 
     thisBooking.date = thisBooking.datePickerWidget.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPickerWidget.value);
 
-    // remove 'selected' class after date change
-    for (let table of thisBooking.dom.tables) {
-      table.classList.remove('selected');
-    }
-
     let allAvailable = false;
 
     if (
       typeof thisBooking.booked[thisBooking.date] == 'undefined'
-      ||
-      typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
+            ||
+            typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
     ) {
       allAvailable = true;
     }
@@ -158,14 +162,17 @@ class Booking {
 
       if (
         !allAvailable
-        &&
-        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
+                &&
+                thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ) {
         table.classList.add(classNames.booking.tableBooked);
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
+
+    // remove 'selected' class after date change
+    thisBooking.resetSelectTable();
   }
 
   render(element) {
@@ -188,6 +195,7 @@ class Booking {
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
     thisBooking.dom.submit = thisBooking.dom.wrapper.querySelector(select.booking.submit);
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
+    thisBooking.dom.bookingForm = thisBooking.dom.wrapper.querySelector(select.booking.bookingForm);
   }
 
   initTables(event) {
@@ -210,7 +218,8 @@ class Booking {
     }
   }
 
-  sendBooking() {
+  sendBooking(event) {
+    event.preventDefault();
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
     const booking = {
@@ -230,7 +239,7 @@ class Booking {
       }
     }
 
-    thisBooking.makeBooked(thisBooking.date, thisBooking.hourPickerWidget.value, thisBooking.hoursAmountWidget.value, thisBooking.activeTable);
+
 
     const options = {
       method: 'POST',
@@ -245,9 +254,12 @@ class Booking {
         return response.json();
       }).then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
+        thisBooking.makeBooked(thisBooking.date, thisBooking.hourPickerWidget.value, thisBooking.hoursAmountWidget.value, thisBooking.activeTable);
+        thisBooking.updateDOM();
+        alert('Your reservation at: ' + thisBooking.date + ', ' + thisBooking.hourPickerWidget.value + ' is confirmed.');
       });
 
-    alert('Your reservation at: ' + thisBooking.date + ', ' + thisBooking.hourPickerWidget.value + ' is confirmed.');
+
   }
 
   initWidgets() {
@@ -273,7 +285,7 @@ class Booking {
       thisBooking.initTables(event);
     });
 
-    thisBooking.dom.submit.addEventListener('click', function (event) {
+    thisBooking.dom.bookingForm.addEventListener('submit', function (event) {
       thisBooking.sendBooking(event);
     });
 

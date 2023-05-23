@@ -9,6 +9,7 @@ export const select = {
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    home: '.home',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -47,7 +48,8 @@ export const select = {
     phone: 'input[name="phone"]',
     address: 'input[name="address"]',
     submit: 'button[type="submit"]',
-    starters: 'input[name="starter"]'
+    starters: 'input[name="starter"]',
+    bookingForm: '.booking-form'
   },
   nav: {
     links: '.main-nav a',
@@ -72,6 +74,9 @@ export const select = {
     remove: '[href="#remove"]',
   },
   // CODE ADDED END
+  home: {
+    carousel: '.main-carousel',
+  }
 };
 
 export const classNames = {
@@ -109,6 +114,7 @@ export const settings = {
   hours: {
     open: 12,
     close: 24,
+    step: 0.5,
   },
   datePicker: {
     maxDaysInFuture: 14,

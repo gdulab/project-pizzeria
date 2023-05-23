@@ -1,0 +1,78 @@
+.home {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+
+
+}
+
+.link-images {
+  display: flex;
+  flex-wrap: wrap;
+
+  .image-button-half {
+    position: relative;
+    flex: 0 0 calc(50% - 10px);
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+    background-size: cover;
+
+    a,
+    h2,
+    p {
+      position: absolute;
+      text-decoration: none;
+      color: white;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .half-one {
+    background-image: url(../../images/homepage/pizza-1.jpg);
+
+  }
+
+  .half-two {
+    background-image: url(../../images/homepage/pizza-2.jpg);
+  }
+
+  .image-button-full {
+    position: relative;
+    flex: 0 0 calc(100% - 10px);
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: lightcoral;
+
+    .image-button-full-inner {
+      position: absolute;
+      color: white;
+      text-align: center;
+      line-height: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .main-carousel {
+    height: 300px;
+
+    .carousel-cell {
+      display: block;
+      height: 100%;
+      width: 66%;
+      background-color: aqua;
+      counter-increment: carousel-cell;
+    }
+  }
+
+}
