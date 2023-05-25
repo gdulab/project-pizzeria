@@ -77,7 +77,7 @@ export const select = {
   home: {
     carousel: '.main-carousel',
     gallery: {
-        likeButton: '.like-button',
+      likeButton: '.like-button',
     }
   }
 };

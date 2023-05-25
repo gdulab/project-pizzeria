@@ -1,181 +1,176 @@
 .home {
-    margin: ($base-size * 3.5) auto;
-    padding: ($base-size * 6) ($base-size * 4);
-    background: $color-light;
-    border-bottom: 1px solid lighten($color-dark, 70%);
-    border-radius: $radius;
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
 
 
 }
 
 .link-images {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    .image-button-half {
-        position: relative;
-        flex: 0 0 calc(50% - 10px);
-        height: 100px;
-        margin: 5px;
-        border-radius: 5px;
-        background-size: cover;
+  .image-button-half {
+    position: relative;
+    flex: 0 0 calc(50% - 10px);
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+    background-size: cover;
 
-        a,
-        h2,
-        p {
-            position: absolute;
-            text-decoration: none;
-            color: white;
-            margin: auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 100%;
-            transition: 1s;
-
-        }
-
-        span {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            color: white;
-            top: 90%;
-            visibility: hidden;
-            opacity: 0;
-            transition: 1s;
-        }
-
-        &:hover a,
-        h2,
-        p {
-            transform: translate(-50%, -80%);
-        }
-
-        &:hover span {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(-120%);
-        }
-
-
+    a,
+    h2,
+    p {
+      position: absolute;
+      text-decoration: none;
+      color: white;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      transition: 1s;
 
     }
 
-    .half-one {
-        background-image: url(../../images/homepage/pizza-1.jpg);
-
+    span {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: white;
+      top: 90%;
+      visibility: hidden;
+      opacity: 0;
+      transition: 1s;
     }
 
-    .half-two {
-        background-image: url(../../images/homepage/pizza-2.jpg);
+    &:hover a,
+    h2,
+    p {
+      transform: translate(-50%, -80%);
     }
 
-    .image-button-full {
-        position: relative;
-        flex: 0 0 calc(100% - 10px);
-        height: 100px;
-        margin: 5px;
-        border-radius: 5px;
-        background-color: lightcoral;
-
-        .image-button-full-inner {
-            position: absolute;
-            color: white;
-            text-align: center;
-            line-height: 10px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+    &:hover span {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(-120%);
     }
+  }
+
+  .half-one {
+    background-image: url(../../images/homepage/pizza-1.jpg);
+
+  }
+
+  .half-two {
+    background-image: url(../../images/homepage/pizza-2.jpg);
+  }
+
+  .image-button-full {
+    position: relative;
+    flex: 0 0 calc(100% - 10px);
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: lightcoral;
+
+    .image-button-full-inner {
+      position: absolute;
+      color: white;
+      text-align: center;
+      line-height: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
 
 .main-carousel {
-    margin: 40px 0 40px 0;
+  margin: 40px 0 40px 0;
 }
 
 .carousel-cell {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 
-    .carousel-image {
+  .carousel-image {
 
-        height: 250px;
-        width: 40%;
-        object-fit: cover;
-    }
+    height: 250px;
+    width: 40%;
+    object-fit: cover;
+  }
 
-    .carousel-text {
-        padding: 20px;
-        width: 60%;
-    }
+  .carousel-text {
+    padding: 20px;
+    width: 60%;
+  }
 
 }
 
 .gallery {
-    justify-content: center;
+  justify-content: center;
 
-    .gallery-row {
-        display: flex;
-        flex-wrap: wrap;
-        .gallery-picture-wrapper {            
-            width: 33.3333%;
-            height: 200px;
-            position: relative;
+  .gallery-row {
+    display: flex;
+    flex-wrap: wrap;
 
-            .gallery-buttons {
-                position: absolute;
-                width: 100%;
-                text-align: center;
-                font-size: 30px;
-                color: white;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 11;
-                opacity: 0;
-                transition: 1s;
-            }
-            
+    .gallery-picture-wrapper {
+      width: 33.3333%;
+      height: 200px;
+      position: relative;
 
-            .gallery-picture {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                padding: 10px;
-            }
-            &:after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: black;
-                opacity: 0;
-                transition: 1s;
-            }
-
-            &:hover:after {
-                opacity: 0.5;
-            }
-
-            &:hover .gallery-buttons{
-                opacity: 1;
-            }
-
-            .liked {
-                color: red;
-            }
+      .gallery-buttons {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 11;
+        opacity: 0;
+        transition: 1s;
+      }
 
 
+      .gallery-picture {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        padding: 10px;
+      }
 
-        }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0;
+        transition: 1s;
+      }
 
+      &:hover:after {
+        opacity: 0.5;
+      }
 
+      &:hover .gallery-buttons {
+        opacity: 1;
+      }
+
+      .liked {
+        color: red;
+      }
     }
-    a {
-        color: lightcoral;
-    }
+  }
+
+  a {
+    color: lightcoral;
+  }
 
 }
