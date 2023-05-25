@@ -76,6 +76,9 @@ export const select = {
   // CODE ADDED END
   home: {
     carousel: '.main-carousel',
+    gallery: {
+        likeButton: '.like-button',
+    }
   }
 };
 

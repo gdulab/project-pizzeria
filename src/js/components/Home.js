@@ -1,17 +1,31 @@
 // import Flickity from "flickity";
 
+import { select } from "../settings.js";
+
 class Home {
-//  constructor(element) {
-//      const thisHome = this;
+    constructor() {
+        const thisHome = this;
 
-  //      thisHome.initWidgets();
-  //  }
+        thisHome.getElements()
+        thisHome.initWidgets()
+    }
 
-  //  initWidgets(){
-  //      const thisHome = this;
+    getElements() {
+        const thisHome = this;
 
+        thisHome.likeButtons = document.querySelectorAll(select.home.gallery.likeButton);
+    }
 
-//  }
+    initWidgets() {
+        const thisHome = this;
+
+        for (let likeButton of thisHome.likeButtons) {
+            likeButton.addEventListener('click', function () {
+                likeButton.classList.toggle('liked');
+            });
+        }
+    }
+
 }
 
 export default Home;
