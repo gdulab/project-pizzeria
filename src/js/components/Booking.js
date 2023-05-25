@@ -97,7 +97,7 @@ class Booking {
     const maxDate = thisBooking.datePickerWidget.maxDate;
 
     for (let item of eventsRepeat) {
-      if (item.repeat == 'daily') {
+      if (item.repeat === 'daily') {
         for (let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate, 1)) {
           thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
         }
@@ -225,7 +225,7 @@ class Booking {
     const booking = {
       'date': thisBooking.date,
       'hour': thisBooking.hourPickerWidget.value,
-      'table': parseInt(thisBooking.activeTable),
+      'table': thisBooking.activeTable ? parseInt(thisBooking.activeTable) : '',
       'duration': thisBooking.hoursAmountWidget.value,
       'ppl': thisBooking.peopleAmountWidget.value,
       'starters': [],
@@ -252,9 +252,9 @@ class Booking {
     fetch(url, options)
       .then(function (response) {
         return response.json();
-      }).then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
-        thisBooking.makeBooked(thisBooking.date, thisBooking.hourPickerWidget.value, thisBooking.hoursAmountWidget.value, thisBooking.activeTable);
+      }).then(function (parsedRespose) {
+        console.log(parsedRespose);
+        thisBooking.makeBooked(booking.date, booking.hour, booking.duration, booking.table);
         thisBooking.updateDOM();
         alert('Your reservation at: ' + thisBooking.date + ', ' + thisBooking.hourPickerWidget.value + ' is confirmed.');
       });

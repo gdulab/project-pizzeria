@@ -62,17 +62,9 @@
       transform: translate(-50%, -50%);
     }
   }
+}
 
-  .main-carousel {
-    height: 300px;
-
-    .carousel-cell {
-      display: block;
-      height: 100%;
-      width: 66%;
-      background-color: aqua;
-      counter-increment: carousel-cell;
-    }
-  }
-
+.carousel_cell_image {
+  height: 300px;
+  width: 30%;
 }

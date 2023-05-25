@@ -52,7 +52,7 @@ export const select = {
     bookingForm: '.booking-form'
   },
   nav: {
-    links: '.main-nav a',
+    links: '.main-nav a, .image-button-half a',
   },
   // CODE ADDED START
   cart: {
